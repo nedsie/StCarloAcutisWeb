@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Carlo Acutis - Modern Saint of the Digital Age</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600&display=swap" rel="stylesheet">
+  <img rel="Acutis" href="pictures/acutis.jpg"/>
+
+  <style id="app-style">
+    :root {
+      --primary-blue: #1e3a8a;
+      --secondary-blue: #3b82f6;
+      --light-blue: #dbeafe;
+      --gold: #d4af37;
+      --gold-light: #f9e8a0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--primary-blue);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    }
+    
+    .gold-text {
+      color: var(--gold);
+    }
+    
+    .gold-bg {
+      background-color: var(--gold);
+    }
+    
+    .nav-link {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--gold);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after,
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .quote-card {
+      border-left: 4px solid var(--gold);
+      transition: transform 0.3s ease;
+    }
+    
+    .quote-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .section-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--gold);
+    }
+    
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .btn-gold {
+      background-color: var(--gold);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-gold:hover {
+      background-color: #b59126;
+      transform: translateY(-2px);
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      padding: 1.5rem;
+      margin: 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .swiper-pagination-bullet-active {
+      background-color: var(--gold) !important;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--gold) !important;
+    }
+    
+    .image-container {
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    
+    .image-container img {
+      transition: transform 0.5s ease;
+    }
+    
+    .image-container:hover img {
+      transform: scale(1.05);
+    }
+    
+    .expand-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    
+    .expanded .expand-content {
+      max-height: 500px;
+    }
+    
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    
+    /* Custom swiper styles */
+    .swiper {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Animation for hero section */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fadeUp {
+      animation: fadeUp 1s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold text-primary-blue">
+            <a href="#hero" class="flex items-center">
+              <span class="text-primary-blue">St. Carlo </span>
+              <span class="gold-text ml-1">Acutis</span>
+            </a>
+          </h1>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="#character" class="nav-link text-gray-800 hover:text-primary-blue">Character</a></li>
+          <li><a href="#heroism" class="nav-link text-gray-800 hover:text-primary-blue">Heroism</a></li>
+          <li><a href="#technology" class="nav-link text-gray-800 hover:text-primary-blue">Technology</a></li>
+          <li><a href="#nature" class="nav-link text-gray-800 hover:text-primary-blue">Nature</a></li>
+          <li><a href="#god" class="nav-link text-gray-800 hover:text-primary-blue">God-centeredness</a></li>
+          <li><a href="#education" class="nav-link text-gray-800 hover:text-primary-blue">Education</a></li>
+        </ul>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-full h-screen bg-white shadow-xl md:hidden z-40">
+      <div class="flex flex-col items-center py-8 space-y-6">
+        <a href="#character" class="text-lg text-gray-800 hover:text-primary-blue">Character</a>
+        <a href="#heroism" class="text-lg text-gray-800 hover:text-primary-blue">Heroism</a>
+        <a href="#technology" class="text-lg text-gray-800 hover:text-primary-blue">Technology</a>
+        <a href="#nature" class="text-lg text-gray-800 hover:text-primary-blue">Nature</a>
+        <a href="#god" class="text-lg text-gray-800 hover:text-primary-blue">God-centeredness</a>
+        <a href="#education" class="text-lg text-gray-800 hover:text-primary-blue">Education</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-gradient min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="text-white animate-fadeUp">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 gold-text">St. Carlo Acutis</h1>
+          <h2 class="text-2xl md:text-3xl mb-6 font-light">The First Millennial Saint</h2>
+          <p class="text-xl mb-8 opacity-90">Explore the extraordinary life of a modern saint who combined deep faith with a passion for technology. Carlo Acutis (1991-2006) shows us how to live a life of virtue in the digital age.</p>
+          <a href="#character" class="btn-gold px-6 py-3 rounded-md font-semibold inline-block">Discover His Story</a>
+        </div>
+        <div class="image-container animate-fadeUp delay-1 flex justify-center">
+          <img src="pictures/acutis.jpg" alt="St. Carlo Acutis" class="rounded-lg shadow-2xl max-h-9">
+        </div>
+      </div>
+      <div class="flex justify-center mt-12 animate-fadeUp delay-2">
+        <div class="flex space-x-3">
+          <a href="#character" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+          <a href="#heroism" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+          <a href="#technology" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+          <a href="#nature" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+          <a href="#god" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+          <a href="#education" class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100 hover:bg-gold-light transition-all"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Character Formation Section -->
+  <section id="character" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">Character Formation <span class="gold-text">(C)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">A young life defined by exceptional kindness, generosity, and unwavering faith.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Biography Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Biography</h3>
+          <p class="text-gray-700 mb-4">
+            Born in London on May 3, 1991, to Italian parents, Carlo Acutis grew up in Milan. From an early age, he displayed exceptional kindness and spiritual maturity. He developed a deep devotion to the Eucharist and attended Mass daily from his First Communion.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Despite his privileged background, Carlo lived simply and shared his belongings with those in need. He had many interests including computers, film editing, and soccer, yet his faith remained his priority.
+          </p>
+          <div class="expandable-content">
+            <button class="expand-toggle text-primary-blue hover:text-gold flex items-center font-semibold">
+              Read more <i class="fas fa-chevron-down ml-2 transition-transform"></i>
+            </button>
+            <div class="expand-content mt-4">
+              <p class="text-gray-700 mb-4">
+                In 2006, Carlo was diagnosed with leukemia. He faced his illness with remarkable courage, offering his sufferings for the Pope and the Church. He died on October 12, 2006, at just 15 years old, and was buried in Assisi at his request.
+              </p>
+              <p class="text-gray-700">
+                Carlo was beatified on October 10, 2020, and is on the path to sainthood, recognized for his extraordinary virtues and his example of modern holiness.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonies Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Testimonies</h3>
+          
+          <div class="testimonial-swiper relative overflow-hidden h-64">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p class="italic text-gray-700 mb-4">"Carlo saw the needs of people around him and tried to help. He defended disabled classmates when others mocked them and invited less fortunate children to his home."</p>
+                  <p class="font-semibold">— Carlo's Teacher</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p class="italic text-gray-700 mb-4">"He always had a smile for everyone and spread joy wherever he went. His faith was contagious. He changed my life completely."</p>
+                  <p class="font-semibold">— Childhood Friend</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p class="italic text-gray-700 mb-4">"Carlo would give away his savings to help homeless people in our neighborhood. His compassion knew no bounds, even at such a young age."</p>
+                  <p class="font-semibold">— Family Member</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        
+        <!-- Quotes Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-quote-right"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Quotes & Reflections</h3>
+          
+          <div class="quote-card p-4 bg-light-blue rounded mb-4">
+            <p class="italic">"To always be close to Jesus, that's my life plan."</p>
+          </div>
+          
+          <div class="quote-card p-4 bg-light-blue rounded mb-4">
+            <p class="italic">"Sadness is looking at ourselves, happiness is looking towards God."</p>
+          </div>
+          
+          <div class="expandable-content">
+            <button class="expand-toggle text-primary-blue hover:text-gold flex items-center font-semibold">
+              More quotes <i class="fas fa-chevron-down ml-2 transition-transform"></i>
+            </button>
+            <div class="expand-content mt-4">
+              <div class="quote-card p-4 bg-light-blue rounded mb-4">
+                <p class="italic">"Not I, but God."</p>
+              </div>
+              
+              <div class="quote-card p-4 bg-light-blue rounded mb-4">
+                <p class="italic">"Our goal must be the infinite, not the finite."</p>
+              </div>
+              
+              <div class="quote-card p-4 bg-light-blue rounded">
+                <p class="italic">"Our soul is like a hot air balloon. If by chance there is a mortal sin, the soul falls to the ground. Confession is like the fire that makes the balloon rise again."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heroism Section -->
+  <section id="heroism" class="py-20 bg-light-blue">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">Heroism <span class="gold-text">(H)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Extraordinary devotion and courage in everyday life.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div class="image-container h-64">
+            <img src="https://cdn.pixabay.com/photo/2015/11/07/11/01/church-1030659_1280.jpg" alt="Eucharistic devotion" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-4 text-primary-blue">Eucharistic Devotion</h3>
+            <p class="text-gray-700 mb-4">
+              From a young age, Carlo demonstrated an extraordinary devotion to the Eucharist. He attended Mass daily and encouraged others to do the same, describing it as his "highway to heaven."
+            </p>
+            <p class="text-gray-700 mb-4">
+              Carlo would spend time before and after Mass in prayer, displaying a deep reverence rarely seen in someone so young. He called the Eucharist "my highway to heaven" and believed it was the most direct path to meeting Jesus.
+            </p>
+            <div class="quote-card p-4 bg-light-blue rounded mb-4">
+              <p class="italic">"The more Eucharist we receive, the more we will become like Jesus, so that on this earth we will have a foretaste of heaven."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div class="image-container h-64">
+            <img src="https://cdn.pixabay.com/photo/2014/09/16/01/19/girl-447701_1280.jpg" alt="Service to others" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-4 text-primary-blue">Service to Others</h3>
+            <p class="text-gray-700 mb-4">
+              Carlo's heroism was evident in his everyday actions. He used his allowance to buy sleeping bags for homeless people and volunteered at local soup kitchens. He defended classmates who were bullied and offered tutoring to those struggling academically.
+            </p>
+            <p class="text-gray-700 mb-4">
+              Even during his illness, Carlo showed remarkable courage. He offered his sufferings for the Pope and the Church, saying "I offer all the suffering I will have to suffer for the Lord, for the Pope, and the Church."
+            </p>
+            <div class="mt-6">
+              <h4 class="font-semibold text-lg mb-2">Living Heroism Daily</h4>
+              <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                <li>Stand up for those who are marginalized or bullied</li>
+                <li>Volunteer your time and talents to help others</li>
+                <li>Maintain your values and faith even when it's not popular</li>
+                <li>Find small ways to serve those around you each day</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-2xl font-semibold mb-6 text-primary-blue text-center">Applying Carlo's Example in Student Life</h3>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="border-l-4 border-gold p-4">
+            <h4 class="font-semibold mb-2">Courage in Faith</h4>
+            <p class="text-gray-700">Be unafraid to live your faith openly, even when it's challenging. Carlo never hesitated to share his beliefs and invite others to Mass.</p>
+          </div>
+          
+          <div class="border-l-4 border-gold p-4">
+            <h4 class="font-semibold mb-2">Kindness to All</h4>
+            <p class="text-gray-700">Practice inclusivity and kindness to everyone, especially those who are excluded or different. Carlo made friends with everyone, regardless of background.</p>
+          </div>
+          
+          <div class="border-l-4 border-gold p-4">
+            <h4 class="font-semibold mb-2">Balancing Priorities</h4>
+            <p class="text-gray-700">Carlo balanced academics, hobbies, and faith. He shows students how to excel in many areas while keeping spiritual life at the center.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section id="technology" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">Advancements in Technology <span class="gold-text">(A)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">How Carlo used his technical skills to spread his faith in the digital world.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Technology Passion Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Passion for Technology</h3>
+          <p class="text-gray-700 mb-4">
+            Carlo was fascinated by computers from an early age and quickly developed impressive skills in programming, website design, and editing. He taught himself to code and create websites when he was just 9 years old.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Friends and teachers described him as having an incredible aptitude for understanding and using technology. He could solve technical problems that even adults found challenging.
+          </p>
+          <div class="flex justify-center mt-6">
+            <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="Computer code" class="rounded-lg shadow-md w-full max-h-48 object-cover">
+          </div>
+        </div>
+        
+        <!-- Eucharistic Miracles Website Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Eucharistic Miracles Website</h3>
+          <p class="text-gray-700 mb-4">
+            Carlo's most significant project was creating a comprehensive website documenting Eucharistic miracles from around the world. He traveled with his parents to photograph and document these miracles.
+          </p>
+          <p class="text-gray-700 mb-4">
+            The website cataloged 136 Eucharistic miracles with detailed descriptions, historical facts, and photographs. It became the basis for exhibitions that have since traveled to parishes and religious institutions worldwide.
+          </p>
+          <div class="quote-card p-4 bg-light-blue rounded mt-4">
+            <p class="italic">"I hope people will be able to draw closer to the Lord through awareness of these miracles."</p>
+          </div>
+          <div class="mt-4 text-center">
+            <a href="javascript:void(0)" class="btn-gold px-4 py-2 rounded-md inline-block text-sm">Explore the Exhibition</a>
+          </div>
+        </div>
+        
+        <!-- Responsible Technology Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Technology for Good</h3>
+          <p class="text-gray-700 mb-4">
+            Carlo viewed technology as a tool for evangelization and spreading goodness. He understood both its potential benefits and dangers, warning that we must be careful not to become "slaves to technology."
+          </p>
+          <h4 class="font-semibold text-lg mt-6 mb-2">Carlo's Technology Principles:</h4>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li>Use technology to bring people closer to God</li>
+            <li>Balance screen time with prayer and real-world relationships</li>
+            <li>Create content that uplifts and inspires others</li>
+            <li>Share knowledge and use skills to help those in need</li>
+          </ul>
+          <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">For Students Today:</h4>
+            <p class="text-gray-700">
+              Carlo's example challenges us to use technology mindfully and purposefully, creating positive digital content while avoiding excessive screen time or online negativity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nature Protection Section -->
+  <section id="nature" class="py-20 bg-light-blue">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">Nature Protection & Sustainability <span class="gold-text">(N)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's appreciation for God's creation and insights on caring for our environment.</p>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+        <div class="grid md:grid-cols-2">
+          <div class="image-container h-full">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="Nature scene" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-4 text-primary-blue">God's Beautiful Creation</h3>
+            <p class="text-gray-700 mb-4">
+              Carlo had a deep appreciation for nature as God's creation. He enjoyed hiking in the mountains and spending time outdoors, seeing the natural world as a reflection of divine beauty.
+            </p>
+            <p class="text-gray-700 mb-4">
+              In his writings, Carlo often reflected on how the order and beauty of nature pointed to the existence of God. He believed that caring for creation was an extension of loving God and respecting His gifts to humanity.
+            </p>
+            <div class="quote-card p-4 bg-light-blue rounded mb-4">
+              <p class="italic">"When we look at the beauty of nature, we see the fingerprints of God everywhere."</p>
+            </div>
+            <p class="text-gray-700">
+              Carlo's respect for nature aligned with his overall philosophy of life: to honor God in all things, including His creation. This respect extended to animals, plants, and natural resources.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Environmental Stewardship</h3>
+          <p class="text-gray-700 mb-4">
+            Though Carlo lived before climate change became a mainstream concern, his Catholic values naturally aligned with environmental stewardship. He practiced simplicity despite coming from a wealthy family, avoiding excessive consumption and waste.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Carlo's emphasis on moderation and his critique of materialism connect directly to sustainable living principles. He warned against becoming "slaves to consumerism," a message that resonates with today's environmental movement.
+          </p>
+          <div class="mt-4">
+            <h4 class="font-semibold text-lg mb-2">Connections to Catholic Teaching:</h4>
+            <p class="text-gray-700">
+              Carlo's environmental sensibilities connect to Catholic social teaching on care for creation, which Pope Francis later developed in his encyclical <i>Laudato Si'</i>. The idea that humans are stewards of the earth, not its masters, was central to Carlo's worldview.
+            </p>
+          </div>
+        </div>
+        
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold">
+            <i class="fas fa-recycle"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Sustainability Tips for Students</h3>
+          <p class="text-gray-700 mb-4">
+            Inspired by Carlo's respect for creation and simple lifestyle, here are practical ways students can practice sustainability:
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Reduce Waste</h5>
+              <ul class="list-disc pl-5 text-gray-700 text-sm">
+                <li>Use reusable water bottles</li>
+                <li>Pack lunches in reusable containers</li>
+                <li>Avoid single-use plastics</li>
+              </ul>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Save Energy</h5>
+              <ul class="list-disc pl-5 text-gray-700 text-sm">
+                <li>Turn off lights when not in use</li>
+                <li>Use natural light when possible</li>
+                <li>Unplug unused electronics</li>
+              </ul>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Mindful Consumption</h5>
+              <ul class="list-disc pl-5 text-gray-700 text-sm">
+                <li>Ask "Do I need this?" before buying</li>
+                <li>Choose quality items that last</li>
+                <li>Consider secondhand options</li>
+              </ul>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Community Action</h5>
+              <ul class="list-disc pl-5 text-gray-700 text-sm">
+                <li>Organize school clean-up events</li>
+                <li>Start recycling programs</li>
+                <li>Create a school garden</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-center">
+            <a href="javascript:void(0)" class="btn-gold px-4 py-2 rounded-md inline-block text-sm">Download Eco-Friendly Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- God-centeredness Section -->
+  <section id="god" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">God-centeredness <span class="gold-text">(G)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's profound devotion to God and the centrality of faith in his life.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Eucharistic Devotion Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold text-center">
+            <i class="fas fa-church"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 text-center">Eucharistic Devotion</h3>
+          <div class="quote-card p-4 bg-light-blue rounded mb-6">
+            <p class="italic text-center text-lg">"The Eucharist is my highway to heaven."</p>
+          </div>
+          <p class="text-gray-700 mb-4">
+            The Eucharist was the center of Carlo's spiritual life. From his First Communion, he attended Mass daily and spent time in Eucharistic adoration whenever possible. 
+          </p>
+          <p class="text-gray-700 mb-4">
+            For Carlo, the Eucharist wasn't just a ritual but a living encounter with Jesus. He called it his "highway to heaven" and believed that through the Eucharist, we can become more like Christ.
+          </p>
+          <p class="text-gray-700">
+            His Eucharistic devotion inspired his most significant project: documenting Eucharistic miracles around the world to help others recognize Christ's real presence in the Blessed Sacrament.
+          </p>
+        </div>
+        
+        <!-- Daily Spiritual Life Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold text-center">
+            <i class="fas fa-pray"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 text-center">Daily Spiritual Life</h3>
+          <p class="text-gray-700 mb-4">
+            Carlo integrated faith into every aspect of his daily life. Besides daily Mass, he prayed the rosary daily and regularly went to confession.
+          </p>
+          <div class="bg-light-blue rounded p-4 mb-4">
+            <h4 class="font-semibold mb-2">Carlo's Daily Spiritual Practices:</h4>
+            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+              <li>Daily Mass and Eucharistic adoration</li>
+              <li>Daily rosary devotion</li>
+              <li>Regular confession (weekly)</li>
+              <li>Scripture reading and reflection</li>
+              <li>Spiritual reading of saints' lives</li>
+            </ul>
+          </div>
+          <p class="text-gray-700">
+            Despite his busy schedule of school, hobbies, and service to others, Carlo always prioritized his relationship with God. He showed that sanctity is possible in modern life and for young people.
+          </p>
+        </div>
+        
+        <!-- Strengthening Relationship with God Card -->
+        <div class="section-card bg-white rounded-lg shadow-lg p-6">
+          <div class="mb-4 text-4xl text-gold text-center">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 text-center">Strengthening Your Relationship with God</h3>
+          <p class="text-gray-700 mb-4">
+            Inspired by Carlo's example, here are practical ways students can deepen their relationship with God:
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="text-gold text-xl mr-3">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <h5 class="font-semibold">Start with small, consistent practices</h5>
+                <p class="text-sm text-gray-700">Begin with just 5 minutes of quiet prayer each day, gradually increasing the time.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-gold text-xl mr-3">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <h5 class="font-semibold">Find community</h5>
+                <p class="text-sm text-gray-700">Join a youth group or bible study to grow in faith alongside peers.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-gold text-xl mr-3">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <h5 class="font-semibold">Incorporate technology</h5>
+                <p class="text-sm text-gray-700">Use prayer apps, online devotionals, or set reminders for prayer on your phone.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-gold text-xl mr-3">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <h5 class="font-semibold">Serve others</h5>
+                <p class="text-sm text-gray-700">Put faith into action through service projects and helping those in need.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-gold text-xl mr-3">
+                <i class="fas fa-star"></i>
+              </div>
+              <div>
+                <h5 class="font-semibold">Visit the Blessed Sacrament</h5>
+                <p class="text-sm text-gray-700">Following Carlo's example, spend time in adoration of the Eucharist.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-white rounded-lg shadow-lg p-8">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-semibold text-primary-blue">Carlo's Journey of Faith</h3>
+          <p class="text-gray-600">A timeline of spiritual milestones</p>
+        </div>
+        
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute h-full w-1 bg-gold left-1/2 transform -translate-x-1/2"></div>
+          
+          <!-- Timeline Items -->
+          <div class="relative z-10">
+            <!-- Item 1 -->
+            <div class="flex justify-end md:justify-between items-center mb-8">
+              <div class="hidden md:block w-5/12 text-right pr-8">
+                <h4 class="font-semibold text-primary-blue">First Communion</h4>
+                <p class="text-gray-700">At age 7, Carlo received his First Communion after requesting special permission. From this day, he attended Mass daily.</p>
+              </div>
+              
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
+              
+              <div class="w-full md:w-5/12 pl-8 md:pl-8">
+                <h4 class="font-semibold text-primary-blue md:hidden">First Communion</h4>
+                <p class="text-sm text-gold font-bold">Age 7 (1998)</p>
+                <p class="text-gray-700 md:hidden">At age 7, Carlo received his First Communion after requesting special permission. From this day, he attended Mass daily.</p>
+              </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="flex justify-end md:justify-between items-center mb-8">
+              <div class="w-full md:w-5/12 text-right pr-8">
+                <h4 class="font-semibold text-primary-blue hidden md:block">Daily Devotion</h4>
+                <p class="text-sm text-gold font-bold md:text-right">Age 8-11 (1999-2002)</p>
+                <p class="text-gray-700 hidden md:block">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
+              </div>
+              
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
+              
+              <div class="md:w-5/12 pl-8">
+                <h4 class="font-semibold text-primary-blue md:hidden">Daily Devotion</h4>
+                <p class="text-gray-700 md:hidden">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
+              </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="flex justify-end md:justify-between items-center mb-8">
+              <div class="hidden md:block w-5/12 text-right pr-8">
+                <h4 class="font-semibold text-primary-blue">Eucharistic Miracles Project</h4>
+                <p class="text-gray-700">Carlo began researching and documenting Eucharistic miracles, creating a website to share this information with the world.</p>
+              </div>
+              
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
+              
+              <div class="w-full md:w-5/12 pl-8">
+                <h4 class="font-semibold text-primary-blue md:hidden">Eucharistic Miracles Project</h4>
+                <p class="text-sm text-gold font-bold">Age 11-14 (2002-2005)</p>
+                <p class="text-gray-700 md:hidden">Carlo began researching and documenting Eucharistic miracles, creating a website to share this information with the world.</p>
+              </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="flex justify-end md:justify-between items-center">
+              <div class="w-full md:w-5/12 text-right pr-8">
+                <h4 class="font-semibold text-primary-blue hidden md:block">Final Journey</h4>
+                <p class="text-sm text-gold font-bold md:text-right">Age 15 (2006)</p>
+                <p class="text-gray-700 hidden md:block">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
+              </div>
+              
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
+              
+              <div class="md:w-5/12 pl-8">
+                <h4 class="font-semibold text-primary-blue md:hidden">Final Journey</h4>
+                <p class="text-gray-700 md:hidden">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-light-blue">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-2">Education <span class="gold-text">(E)</span></h2>
+        <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's commitment to learning and how his example inspires students today.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-2xl font-semibold mb-4 text-primary-blue">Commitment to Learning</h3>
+          <p class="text-gray-700 mb-4">
+            Carlo attended the Jesuit classical high school Leo XIII Institute in Milan, where he excelled in his studies despite his many other interests and commitments. His teachers described him as intellectually curious, attentive, and diligent.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Beyond formal education, Carlo was a self-learner who constantly sought to expand his knowledge. He taught himself programming and web design skills through books and online resources, showing remarkable determination.
+          </p>
+          <div class="quote-card p-4 bg-light-blue rounded mb-4">
+            <p class="italic">"What use is it to win a thousand battles if you cannot win against your own corrupt passions? It is better to conquer yourself than to conquer thousands in battle."</p>
+          </div>
+          <p class="text-gray-700">
+            Carlo believed that education was not just about acquiring knowledge but about growing in wisdom and character. He integrated his faith and values into his academic pursuits, seeing all truth as coming from God.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-2xl font-semibold mb-4 text-primary-blue">Inspirational Lessons for Students</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Balance is Possible</h5>
+              <p class="text-gray-700 text-sm">
+                Carlo maintained excellent grades while pursuing technology projects, serving others, and maintaining a rich spiritual life. His example shows that with good time management, students can excel in multiple areas.
+              </p>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Be a Self-Learner</h5>
+              <p class="text-gray-700 text-sm">
+                Carlo didn't limit his learning to the classroom. He pursued knowledge independently, teaching himself new skills that aligned with his interests and values.
+              </p>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Purpose-Driven Education</h5>
+              <p class="text-gray-700 text-sm">
+                Carlo saw learning as a way to better serve others and glorify God. His approach reminds students that education has meaning beyond grades or career preparation.
+              </p>
+            </div>
+            
+            <div class="bg-light-blue rounded p-4">
+              <h5 class="font-semibold mb-2">Share Your Knowledge</h5>
+              <p class="text-gray-700 text-sm">
+                Carlo used what he learned to create resources that benefited others. He reminds us that knowledge is meant to be shared for the common good.
+              </p>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">Apply Carlo's Approach:</h4>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+              <li>Set aside dedicated study time each day, as Carlo did with his spiritual practices</li>
+              <li>Find ways to connect your academic interests with service to others</li>
+              <li>Share your knowledge by tutoring or mentoring younger students</li>
+              <li>Pursue independent learning in areas that interest you</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-2xl font-semibold mb-6 text-primary-blue text-center">Education as a Tool for Change</h3>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center p-4">
+            <div class="text-5xl text-gold mb-4">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Illuminate Minds</h4>
+            <p class="text-gray-700">
+              Carlo believed that education should enlighten minds and hearts. Like him, we can use our knowledge to illuminate truth for others and dispel ignorance.
+            </p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="text-5xl text-gold mb-4">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Serve Society</h4>
+            <p class="text-gray-700">
+              Education equips us to better serve others. Carlo used his technological education to create resources that would help people grow in faith.
+            </p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="text-5xl text-gold mb-4">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Transform Culture</h4>
+            <p class="text-gray-700">
+              Carlo shows how educated young people can be agents of positive cultural change, introducing new perspectives and values to society.
+            </p>
+          </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+          <p class="text-gray-700 max-w-3xl mx-auto mb-4">
+            Carlo's legacy reminds students that education is not just about personal success but about contributing to the common good. His life demonstrates how knowledge, when guided by values, can make a meaningful difference in the world.
+          </p>
+          <a href="javascript:void(0)" class="btn-gold px-6 py-3 rounded-md inline-block">Download Study Inspiration Guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary-blue text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4 gold-text">St. Carlo Acutis</h3>
+          <p class="mb-4">
+            "The Eucharist is my highway to heaven." - Carlo Acutis (1991-2006)
+          </p>
+          <p>
+            Beatified on October 10, 2020<br>
+            Patron of the Internet, Computer Programmers, and Youth
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-4 gold-text">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#character" class="hover:text-gold-light">Character Formation</a></li>
+            <li><a href="#heroism" class="hover:text-gold-light">Heroism</a></li>
+            <li><a href="#technology" class="hover:text-gold-light">Technology</a></li>
+            <li><a href="#nature" class="hover:text-gold-light">Nature Protection</a></li>
+            <li><a href="#god" class="hover:text-gold-light">God-centeredness</a></li>
+            <li><a href="#education" class="hover:text-gold-light">Education</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-4 gold-text">Share</h3>
+          <div class="flex space-x-4">
+            <a href="javascript:void(0)" class="bg-white text-primary-blue w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold-light transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="javascript:void(0)" class="bg-white text-primary-blue w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold-light transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="javascript:void(0)" class="bg-white text-primary-blue w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold-light transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="javascript:void(0)" class="bg-white text-primary-blue w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold-light transition-colors">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </div>
+          
+          <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-4 gold-text">Subscribe</h3>
+            <p class="mb-4">Receive updates about Carlo Acutis and resources for students.</p>
+            <div class="flex">
+              <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md w-full text-gray-800 focus:outline-none" />
+              <button class="btn-gold px-4 py-2 rounded-r-md">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-blue-700 mt-8 pt-8 text-center">
+        <p>&copy; 2025 St. Carlo Acutis Interactive | Designed with <i class="fas fa-heart text-gold"></i> to inspire the C.H.A.N.G.E. framework</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-gold w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg opacity-0 transition-opacity duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
+  <script id="app-script">
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+    
+    // Expandable content functionality
+    const expandToggles = document.querySelectorAll('.expand-toggle');
+    
+    expandToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const content = toggle.closest('.expandable-content');
+        content.classList.toggle('expanded');
+        
+        const icon = toggle.querySelector('i');
+        if (content.classList.contains('expanded')) {
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          icon.style.transform = 'rotate(0)';
+        }
+      });
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.style.opacity = '1';
+      } else {
+        backToTopButton.style.opacity = '0';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Highlight active nav link based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // Store last viewed section in local storage
+    const storeLastViewedSection = () => {
+      const scrollPosition = window.scrollY + (window.innerHeight / 2);
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      if (currentSection) {
+        localStorage.setItem('lastViewedSection', currentSection);
+      }
+    };
+    
+    // Check for last viewed section on page load
+    window.addEventListener('load', () => {
+      const lastViewedSection = localStorage.getItem('lastViewedSection');
+      if (lastViewedSection && lastViewedSection !== 'hero') {
+        const sectionElement = document.getElementById(lastViewedSection);
+        if (sectionElement) {
+          // Small delay to ensure smooth scroll after page loads
+          setTimeout(() => {
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+        }
+      }
+    });
+    
+    // Update last viewed section periodically during scroll
+    window.addEventListener('scroll', debounce(storeLastViewedSection, 500));
+    
+    // Debounce function to limit execution frequency
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+  </script>
+</body>
+</html>
