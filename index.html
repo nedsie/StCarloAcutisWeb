@@ -122,7 +122,7 @@
     }
     
     .image-container {
-      overflow: hidden;
+      overflow:visible;
       border-radius: 8px;
     }
     
@@ -249,12 +249,12 @@
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div class="text-white animate-fadeUp">
           <h1 class="text-4xl md:text-6xl font-bold mb-4 gold-text">St. Carlo Acutis</h1>
-          <h2 class="text-2xl md:text-3xl mb-6 font-light">The First Millennial Saint</h2>
+          <h2 class="text-2xl md:text-3xl mb-6 font-light text-white">The First Millennial Saint</h2>
           <p class="text-xl mb-8 opacity-90">Explore the extraordinary life of a modern saint who combined deep faith with a passion for technology. Carlo Acutis (1991-2006) shows us how to live a life of virtue in the digital age.</p>
           <a href="#character" class="btn-gold px-6 py-3 rounded-md font-semibold inline-block">Discover His Story</a>
         </div>
         <div class="image-container animate-fadeUp delay-1 flex justify-center">
-          <img src="https://cdn.pixabay.com/photo/2023/03/06/10/19/ai-generated-7832788_1280.jpg" alt="St. Carlo Acutis" class="rounded-lg shadow-2xl max-h-96">
+          <img src="./pictures/acutis.jpg" alt="St. Carlo Acutis" class="rounded-lg shadow-2xl max-h-96">
         </div>
       </div>
       <div class="flex justify-center mt-12 animate-fadeUp delay-2">
@@ -274,7 +274,7 @@
   <section id="character" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">Character Formation <span class="gold-text">(C)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">Character Formation</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">A young life defined by exceptional kindness, generosity, and unwavering faith.</p>
       </div>
@@ -360,7 +360,7 @@
             </button>
             <div class="expand-content mt-4">
               <div class="quote-card p-4 bg-light-blue rounded mb-4">
-                <p class="italic">"Not I, but God."</p>
+                <p class="italic">"Not Me, but God."</p>
               </div>
               
               <div class="quote-card p-4 bg-light-blue rounded mb-4">
@@ -381,7 +381,7 @@
   <section id="heroism" class="py-20 bg-light-blue">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">Heroism <span class="gold-text">(H)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">Heroism</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">Extraordinary devotion and courage in everyday life.</p>
       </div>
@@ -457,7 +457,7 @@
   <section id="technology" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">Advancements in Technology <span class="gold-text">(A)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">Advancements in Technology</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">How Carlo used his technical skills to spread his faith in the digital world.</p>
       </div>
@@ -475,9 +475,6 @@
           <p class="text-gray-700 mb-4">
             Friends and teachers described him as having an incredible aptitude for understanding and using technology. He could solve technical problems that even adults found challenging.
           </p>
-          <div class="flex justify-center mt-6">
-            <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="Computer code" class="rounded-lg shadow-md w-full max-h-48 object-cover">
-          </div>
         </div>
         
         <!-- Eucharistic Miracles Website Card -->
@@ -496,7 +493,7 @@
             <p class="italic">"I hope people will be able to draw closer to the Lord through awareness of these miracles."</p>
           </div>
           <div class="mt-4 text-center">
-            <a href="javascript:void(0)" class="btn-gold px-4 py-2 rounded-md inline-block text-sm">Explore the Exhibition</a>
+            <a href="https://www.miracolieucaristici.org/en/Liste/list.html"  target="_blank" class="btn-gold px-4 py-2 rounded-md inline-block text-sm">Visit the Website</a>
           </div>
         </div>
         
@@ -531,7 +528,7 @@
   <section id="nature" class="py-20 bg-light-blue">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">Nature Protection & Sustainability <span class="gold-text">(N)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">Nature Protection</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's appreciation for God's creation and insights on caring for our environment.</p>
       </div>
@@ -638,7 +635,7 @@
   <section id="god" class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">God-centeredness <span class="gold-text">(G)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">God-centeredness</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's profound devotion to God and the centrality of faith in his life.</p>
       </div>
@@ -764,41 +761,42 @@
           
           <!-- Timeline Items -->
           <div class="relative z-10">
+            <div class="h-96px absolute flex-col border-left">hi</div>
             <!-- Item 1 -->
-            <div class="flex justify-end md:justify-between items-center mb-8">
-              <div class="hidden md:block w-5/12 text-right pr-8">
+            <div class="flex justify-endjustify-between items-center mb-8">
+              <div class="block w-5/12 text-right pr-8">
                 <h4 class="font-semibold text-primary-blue">First Communion</h4>
                 <p class="text-gray-700">At age 7, Carlo received his First Communion after requesting special permission. From this day, he attended Mass daily.</p>
               </div>
               
               <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
               
-              <div class="w-full md:w-5/12 pl-8 md:pl-8">
-                <h4 class="font-semibold text-primary-blue md:hidden">First Communion</h4>
-                <p class="text-sm text-gold font-bold">Age 7 (1998)</p>
-                <p class="text-gray-700 md:hidden">At age 7, Carlo received his First Communion after requesting special permission. From this day, he attended Mass daily.</p>
+              <div class="w-full ytext-left pr-8">
+                <h4 class="font-semibold text-primary-blue md:text-xs ">First Communion</h4>
+                <p class="text-sm text-gold font-bold md:text-xs">Age 7 (1998)</p>
+                <p class="text-gray-700 ">At age 7, Carlo received his First Communion after requesting special permission. From this day, he attended Mass daily.</p>
               </div>
             </div>
             
             <!-- Item 2 -->
             <div class="flex justify-end md:justify-between items-center mb-8">
-              <div class="w-full md:w-5/12 text-right pr-8">
-                <h4 class="font-semibold text-primary-blue hidden md:block">Daily Devotion</h4>
+              <div class="w-full md:w-5/12 text-right pr-8 md:text-xs">
+                <h4 class="font-semibold text-primary-blue md:block">Daily Devotion</h4>
                 <p class="text-sm text-gold font-bold md:text-right">Age 8-11 (1999-2002)</p>
-                <p class="text-gray-700 hidden md:block">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
+                <p class="text-gray-700  md:block">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
               </div>
               
               <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
               
               <div class="md:w-5/12 pl-8">
-                <h4 class="font-semibold text-primary-blue md:hidden">Daily Devotion</h4>
-                <p class="text-gray-700 md:hidden">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
+                <h4 class="font-semibold text-primary-blue">Daily Devotion</h4>
+                <p class="text-gray-700">Carlo established his daily practices of Mass, rosary prayer, and reading Scripture. He began helping at his parish.</p>
               </div>
             </div>
             
             <!-- Item 3 -->
             <div class="flex justify-end md:justify-between items-center mb-8">
-              <div class="hidden md:block w-5/12 text-right pr-8">
+              <div class="block w-5/12 text-right pr-8">
                 <h4 class="font-semibold text-primary-blue">Eucharistic Miracles Project</h4>
                 <p class="text-gray-700">Carlo began researching and documenting Eucharistic miracles, creating a website to share this information with the world.</p>
               </div>
@@ -806,25 +804,25 @@
               <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
               
               <div class="w-full md:w-5/12 pl-8">
-                <h4 class="font-semibold text-primary-blue md:hidden">Eucharistic Miracles Project</h4>
+                <h4 class="font-semibold text-primary-blue ">Eucharistic Miracles Project</h4>
                 <p class="text-sm text-gold font-bold">Age 11-14 (2002-2005)</p>
-                <p class="text-gray-700 md:hidden">Carlo began researching and documenting Eucharistic miracles, creating a website to share this information with the world.</p>
+                <p class="text-gray-700 ">Carlo began researching and documenting Eucharistic miracles, creating a website to share this information with the world.</p>
               </div>
             </div>
             
             <!-- Item 4 -->
             <div class="flex justify-end md:justify-between items-center">
               <div class="w-full md:w-5/12 text-right pr-8">
-                <h4 class="font-semibold text-primary-blue hidden md:block">Final Journey</h4>
+                <h4 class="font-semibold text-primary-blue block">Final Journey</h4>
                 <p class="text-sm text-gold font-bold md:text-right">Age 15 (2006)</p>
-                <p class="text-gray-700 hidden md:block">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
+                <p class="text-gray-700 block">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
               </div>
               
               <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-gold"></div>
               
               <div class="md:w-5/12 pl-8">
-                <h4 class="font-semibold text-primary-blue md:hidden">Final Journey</h4>
-                <p class="text-gray-700 md:hidden">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
+                <h4 class="font-semibold text-primary-blue">Final Journey</h4>
+                <p class="text-gray-700">Diagnosed with leukemia, Carlo offered his sufferings for the Church. He requested to be buried in Assisi, where he had felt a special connection to St. Francis.</p>
               </div>
             </div>
           </div>
@@ -837,7 +835,7 @@
   <section id="education" class="py-20 bg-light-blue">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-2">Education <span class="gold-text">(E)</span></h2>
+        <h2 class="text-4xl font-bold mb-2">Education</h2>
         <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carlo's commitment to learning and how his example inspires students today.</p>
       </div>
@@ -950,7 +948,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-primary-blue text-white py-12">
+  <footer class="text-{--primary-blue} py-12">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
         <div>
@@ -1007,7 +1005,7 @@
       </div>
       
       <div class="border-t border-blue-700 mt-8 pt-8 text-center">
-        <p>&copy; 2025 St. Carlo Acutis Interactive | Designed with <i class="fas fa-heart text-gold"></i> to inspire the C.H.A.N.G.E. framework</p>
+        <p>&copy; 2025 created by: Mr. Gabriel Luis Ortega, Mr. Mikel Joseph De Jesus, Ms. Trinity Denise Bautista | Dedicated to St. Carlo Acutis <i class="fas fa-heart gold-text"></i></p>
       </div>
     </div>
   </footer>

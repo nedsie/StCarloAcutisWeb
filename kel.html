@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>A.C.U.T.I.S.</title>
+	<!-- <meta name="description" content="Responsive ACUTIS homepage with navigation."> -->
+	<style>
+		:root{
+			--bg-overlay: rgba(0,0,0,0.35);
+			--accent: #94a1dc;
+			--max-width: 1100px;
+			--gap: 1.25rem;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+		}
+		*{box-sizing:border-box}
+		html,body{height:100%;margin:0}
+		body{color:#222;line-height:1.45}
+
+		header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgb(255, 255, 255), rgba(65, 168, 237, 0.6));backdrop-filter: blur(4px);box-shadow:0 1px 0 rgba(0,0,0,0.06)}
+		.nav{max-width:var(--max-width);margin:0 auto;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between}
+		.brand{font-weight:700;color:#111}
+		.nav-links{display:flex;gap:calc(var(--gap) / 2)}
+		.nav-links a{color:#111; text-decoration:none; padding:0.35rem 0.5rem; display:flex; border-radius:6px; align-items:center; height:100%}
+		.nav-links a::first-letter{color:#3c00ff; text-decoration:none; padding:0.35rem 0.5rem; display:flex; border-radius:6px; align-items:center; height:100%}
+		.nav-links a:hover{background:#f9f9eed4}
+
+		.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem 1rem;color:#fff;background-image: url('images/acutis_bg.svg');background-size:cover;background-position:center;background-repeat:no-repeat}
+		.hero-inner{max-width:900px;padding:2rem;border-radius:10px;background:var(--bg-overlay)}
+		.hero h1{font-size:clamp(1.6rem, 4vw, 3rem);margin:0 0 0.5rem}
+		.hero p{font-size:clamp(1rem,2.2vw,1.25rem);margin:0 0 1rem}
+		.btn{display:inline-block;background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;text-decoration:none;font-weight:600}
+
+        .acutis-letter {
+        color: #ffffff;
+        font-weight: bold;
+        }
+
+		footer{padding:2rem 1rem;text-align:center;color:#666;background:#fafafa;border-top:1px solid #eee}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="nav">
+			<div class="brand">ACUTIS</div>
+			<nav class="nav-links" aria-label="Main navigation">
+				<a href="about.html">About</a>
+				<a href="connect.html">Connect</a>
+				<a href="uplift.html">Uplift</a>
+				<a href="testimonies.html">Testimonies</a>
+				<a href="inspirations.html">Inspirations</a>
+				<a href="sainthood.html">Sainthood</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+        <section class="hero">
+            <div class="hero-inner">
+            <h1>Welcome to A.C.U.T.I.S.</h1>
+            <p>
+                <span class="acutis-letter">A</span> 
+                <span class="acutis-letter">C</span>arlo
+                <span class="acutis-letter">U</span>nified
+                <span class="acutis-letter">T</span>estimony of
+                <span class="acutis-letter">I</span>nspiration &
+                <span class="acutis-letter">S</span>ainthood.
+            </p>
+            <p><a class="btn" href="about.html">Get started</a></p>
+            </div>
+        </section>
+    </main>
+
+	<footer>
+		<div class="container">© <span id="year"></span> ACUTIS • The Eucharist is my Highway to Heaven</div>
+	</footer>
+
+	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
