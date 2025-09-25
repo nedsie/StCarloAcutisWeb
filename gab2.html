@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.H.A.N.G.E. - Carlo Acutis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    
+  
+.news-gallery {
+  display: flex;
+  flex-wrap: wrap;         /*allow wrapping if needed*/
+  justify-content: center; /*centers horizontally */
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
+
+.news-item {
+  flex: 0 0 auto;
+  width: 250px;
+  border: 2px solid #fbbf24;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: #1e3a8a;
+}
+
+.news-item img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.news-item:hover {
+  transform: scale(1.05);
+}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: #1e3a8a;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #1e3a8a;
+      overflow: hidden;
+    }
+
+    header .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      z-index: 0;
+      transform: scale(1.1);
+      transition: transform 8s ease-in-out;
+    }
+
+    header:hover .header-bg {
+      transform: scale(1.2);
+    }
+
+    header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    header h2 {
+      font-size: .8rem;
+      margin-top: 1rem;
+      font-style: italic;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 4.7rem;
+      color: #ffee00d0;
+      text-shadow: 1px 1px 4px #133183;
+      margin-top: 2rem;
+    }
+
+    header h1, header h2, header h3 {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+
+    header h1 { animation-delay: 0.2s; }
+    header h2 { animation-delay: 0.6s; }
+    header h3 { animation-delay: 1s; }
+
+     @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+      header h2 {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      header h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    nav {
+      text-align: center;
+      padding: 1rem;
+      background: #1e3a8a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      background: white;
+      border: 2px solid #fbbf24;
+      border-radius: 20px;
+      color: #1e3a8a;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      background: #fbbf24;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .nav-btn.active {
+      background: #fbbf24;
+      color: white;
+      box-shadow: 0 0 15px #fbbf24;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-btn {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
+        margin: 0.2rem;
+      }
+    }
+
+    section {
+      padding: 5rem 10%;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    section h3 {
+      color: #1e3a8a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e2e204;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    header h4 {
+  font-size: 2.2rem;
+  margin-top: 1rem;
+  font-style: italic;
+  color: #e3e001;
+  text-shadow: 1px 1px 4px #133183;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+  animation-delay: 1.4s; 
+}
+
+    .timeline {
+      position: relative;
+      margin: 3rem auto;
+      padding: 2rem 0;
+      width: 80%;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #fbbf24;
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px #fbbf24, 0 0 24px #fbbf24;
+      animation: glowPulse 2s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      from { box-shadow: 0 0 8px #fbbf24, 0 0 16px #fbbf24; }
+      to   { box-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24; }
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 1rem;
+      border: 2px solid #1e3a8a;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.show .timeline-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      border: 3px solid #fbbf24;
+      z-index: 1;
+      box-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24; /* glowing dots */
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -12px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -12px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .timeline {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .timeline::before {
+        left: 20px; /* move line to the left */
+        transform: none;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important; /* force all items full width */
+        text-align: left !important;
+        padding-left: 3rem; /* give space for line & dot */
+        padding-right: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-item::before {
+        left: 0;
+        right: auto;
+        margin-left: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      background: #1e3a8a;
+      color: white;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Quiz styles */
+    #quiz-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border: 3px solid #fbbf24;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transform: scale(0.95);
+      transition: transform 0.5s ease;
+    }
+    #quiz-container:hover {
+      transform: scale(1);
+    }
+    #quiz-container h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #1e3a8a;
+    }
+    .quiz-btn {
+      display: block;
+      margin: 0.5rem auto;
+      padding: 0.8rem;
+      width: 80%;
+      border-radius: 10px;
+      border: 2px solid #1e3a8a;
+      background: white;
+      color: #1e3a8a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .quiz-btn:hover {
+      background: #fbbf24;
+      color: white;
+      transform: translateY(-3px);
+    }
+    #result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fbbf24;
+    }
+    #reset-btn {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    #reset-btn:hover {
+      background: #fbbf24;
+      color: #1e3a8a;
+    }
+
+    /* Mini-game styles */
+    /* Make the canvas responsive: uses CSS size for layout while JS sets the internal drawing size */
+    #gameCanvas {
+      display: block;
+      margin: 1rem auto;
+      border: 2px solid #1e3a8a;
+      background: #f9fafb;
+      transition: box-shadow 0.7s ease;
+      width: 90vw;           /* responsive width on small screens */
+      max-width: 420px;      /* keep a comfortable max size for desktop */
+      height: auto;          /* keep square via JS (canvas internal size) */
+      aspect-ratio: 1 / 1;   /* modern browsers keep visual square ratio */
+    }
+    #gameCanvas:hover {
+      box-shadow: 0 0 20px rgba(30,58,138,0.3);
+    }
+    #game-controls {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    #game-controls button {
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 8px;
+      background: #1e3a8a;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #game-controls button:hover {
+      background: #fbbf24;
+      color: #1e3a8a;
+      transform: scale(1.05);
+    }
+
+    #gallery {
+      text-align: center;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      max-width: 250px;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.8s ease;
+    }
+
+    .gallery-item.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid #fbbf24;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.08);
+    }
+
+    .gallery-item p {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #1e3a8a;
+    }
+    /* Responsive video wrapper used for the video sections */
+    .video-wrapper {
+      /* Use flexible sizing that keeps comfortable side padding on very small devices */
+      width: calc(100% - 2rem);
+      max-width: 640px;
+      margin: 0.5rem auto 1.5rem auto;
+      aspect-ratio: 16 / 9; /* keep 16:9 ratio */
+      background: #000; /* fallback background while loading */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain; /* preserves full video inside box */
+      background: #000;
+    }
+    @media (max-width: 420px) {
+      .video-wrapper { width: calc(100% - 1.2rem); margin-top: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bg-music" autoplay loop>
+  <source src="./Not Me, But God.mp3" type="audio/mp3">
+</audio>
+
+<header>
+  <img src="./carloo.jpg" alt="Carlo Acutis" class="header-bg">
+  <h1>C.H.A.N.G.E.</h1>
+  <h2>Character Formation, Heroism, Advancement in Technology, Nature Protection and Sustainability, God-Centeredness, Education</h2>
+  <h3>St. Carlo Acutis</h3>
+  <h4 class="header-sub">"The Cyber Apostle of the Holy Eucharist"</h4>
+</header>
+
+<nav>
+    <a href="#life" class="nav-btn">Life</a>
+    <a href="#miracles" class="nav-btn">Miracles</a>
+    <a href="#gallery" class="nav-btn">Gallery</a>
+    <a href="#technology" class="nav-btn">Technology</a>
+    <a href="#education" class="nav-btn">Education</a>
+    <a href="#game" class="nav-btn">Mini-Game</a>
+    <a href="#quiz" class="nav-btn">Quiz</a>
+    <a href="#video" class="nav-btn">Music Video</a>
+    <button id="music-btn" class="nav-btn">🎵 Music</button>
+  </nav>
+
+<section id="life">
+  <h3>Life of St. Carlo Acutis - <i>"The First Millennial Saint"</i></h3>
+  <p>Carlo Acutis was born on May 3, 1991, in London, but was raised in Milan, Italy. From a young age, he showed a deep love for God, particularly for the Eucharist, which he called his “highway to heaven.” He attended daily Mass, prayed the Rosary, and spent time in Eucharistic adoration.</p>
+  <p>Aside from his faith, Carlo was an ordinary teenager who enjoyed video games, soccer, and spending time with friends. However, he stood out because of his kindness, his concern for others, and his ability to see God in everyday life. He also had a passion for technology, which he used to serve the Church.</p>
+  <p>Sadly, Carlo was diagnosed with leukemia at the age of 15. He offered his suffering for the Pope and the Church, saying, “I am happy to die because I lived my life without wasting a minute on things that do not please God.” He died on October 12, 2006, and was buried in Assisi, Italy.</p>
+
+ <h4 style="margin-top:2rem; color:#1e3a8a; text-align:center;">Timeline of Carlo Acutis</h4>
+   <div class="timeline">
+     <div class="timeline-item">
+      <div class="timeline-content"><strong>1991</strong> – Born on 3rd May at the Portland Clinic, London. Baptized on 18th May at the Church of Our Lady of Dolours, London. On 8th September, Carlo returned to Milan with his parents.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>1995</strong> – Began school at Parco Pagani, the public nursery near his home in Milan.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>1997</strong> – Entered elementary school at the San Carlo Institute. Later transferred to the Tommaseo Institute run by the Sisters of Saint Marcellina, where he completed primary and middle school.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>1998</strong> – On the 16th of June, at the age of 7, he received his first Holy Communion at the Convent of the Romite Sisters of Saint Ambrose in Perego.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2002</strong> – From ages 11-15, he started researching and documenting for his website made for the Eucharistic Miracles from across the world. <a href="#technology" class="text-xs">View the website</a></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2003</strong> – On the 24th of May, received the Sacrament of Confirmation in his parish church, Santa Maria Segreta.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2005</strong> – Began secondary school at the Leo XIII Institute, run by the Jesuits.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2006</strong> – On the 8th of October, Carlo suddenly fell ill and was diagnosed with M3 acute leukaemia. On 12th October, he died in hospital in Milan and was buried in Piedmont.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2007</strong> – In January, in accordance with his request, his body was transferred to a cemetery in Assisi.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2012</strong> – On the 12th of October, the cause for Carlo’s canonisation was opened and he became a Servant of God.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2013</strong> – On the 13th of May, the Holy See’s Nihil Obstat approved his cause for beatification and canonisation.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2016</strong> – On the 24th of November, the diocesan phase of his cause was concluded and sent to Rome.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2018</strong> – On the 5th of July, Carlo was declared Venerable by Pope Francis.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2019</strong> – On the 23rd of January, Carlo’s body was exhumed and placed in the Shrine of Renunciation in Assisi.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2020</strong> – On the 10th of October, Carlo Acutis was beatified in Assisi by Pope Francis, making him "Blessed".</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content"><strong>2025</strong> – On the 7th of September, Blessed Carlo Acutis was officially canonized as a Roman Catholic Saint by Pope Leo XIV.</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="miracles">
+  <h3>Miracles</h3>
+  <p>Carlo Acutis is credited with miracles that have been recognized or reported through his intercession. The most important and well-documented case is the Miracle in Brazil (2013), when a seven-year-old boy suffering from a rare congenital pancreatic disease known as annular pancreas was miraculously healed. After the child and his family prayed for Carlo’s intercession, the boy’s pancreas was completely restored, with doctors confirming the cure as medically inexplicable. This healing was officially attributed to Carlo and became the key miracle that led to his beatification in 2020.</p>
+  <p>In addition to this recognized miracle, countless testimonies from around the world speak of other extraordinary favors, including physical healings and, most significantly, Spiritual Conversions. Many people who have prayed through Carlo’s intercession have reported renewed faith, deeper devotion to the Eucharist, and profound changes in their lives. While only one miracle has been officially confirmed by the Church so far, ongoing accounts of healings and transformations continue to strengthen Carlo’s reputation as a powerful intercessor for the faithful.</p>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery">
+  <h3>Gallery</h3>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="./carlo1.jpg" alt="Carlo Acutis as a child">
+      <p>Carlo Acutis as a young boy, already showing deep faith and kindness.</p>
+    </div>
+    <!-- <div class="gallery-item">
+      <img src="./carlo.jpg" alt="Carlo Acutis with computer">
+      <p></p>
+    </div> -->
+    <div class="gallery-item">
+      <img src="./carlo2.jpg" alt="Carlo Acutis smiling">
+      <img src="./carlo3.jpg" alt="Carlo Acutis smiling">
+      <p>His joy and positivity inspired many of his peers to follow his example.</p>
+    </div>
+  </div>
+</section>
+
+   <section id="technology">
+  <h3>Advancement in Technology</h3>
+  <p>Carlo Acutis is often called the <strong>“Patron of the Internet”</strong> because of the way he used technology for faith and evangelization. Even at a young age, he showed remarkable skill in computer programming, video editing, and website design. His greatest technological contribution was creating a digital exhibition on Eucharistic miracles around the world, which he began when he was just 11 years old. This project compiled and documented hundreds of Eucharistic miracles into a website, making them easily accessible to people globally. Today, his work continues to travel internationally as both a physical and online exhibition, allowing millions to learn about these miracles through modern technology.</p>
+  <p>Carlo demonstrated that technology, when used responsibly, can be a powerful tool for good. Instead of using the internet for distraction or negative purposes, he used it as a means to spread truth, faith, and inspiration. His example shows that technology and holiness can coexist, inspiring young people to use their digital skills for innovation, education, and service to others. In this way, Carlo’s contribution lies not only in his technical creations but also in his witness—proving that technology can advance society when guided by values, purpose, and responsibility.</p>
+  
+  <h4 style="margin-top:2rem; color:#1e3a8a; text-align:center;">FB Pages</h4>
+  <p style="text-align:center; margin-bottom:1rem;">This gallery highlights Facebook pages dedicated to St. Carlo Acutis, serving as digital spaces where people share prayers, stories, and inspirations from his life. These pages connect devotees worldwide, continuing Carlo’s mission of using technology to spread faith.</p>
+  <div class="news-gallery" id="newsGallery1">
+    <a href="https://www.facebook.com/fsca.ph" target="_blank" class="news-item">
+      <img src="./FBPAGE1.png" alt="News 1">
+      <p><strong>Friends of Blessed Carlo Acutis - Philippines</strong></p>
+    </a>
+    <a href="https://www.facebook.com/StCarloAcutis" target="_blank" class="news-item">
+      <img src="./FBPAGE2.png" alt="News 2">
+      <p><strong>Blessed Carlo Acutis, Pray For Us</strong></p>
+    </a>
+    <a href="https://www.facebook.com/friendsofstcarlo" target="_blank" class="news-item">
+      <img src="./FBPAGE3.png" alt="News 3">
+      <p><strong>Friends of St. Carlo Acutis</strong></p>
+    </a>
+  </div>
+  <!-- News Gallery 2 -->
+  <h4 style="margin-top:2rem; color:#1e3a8a; text-align:center;">FB Posts</h4>
+  <p style="text-align:center; margin-bottom:0rem;">This Features Facebook posts sharing devotion and story from the life of St. Carlo Acutis.</p>
+  <div class="news-gallery" id="newsGallery2">
+    <a href="https://www.facebook.com/MYACubao/posts/pfbid02ygRWiiegbAvxyUBdEDKSaKbDSq6YFgyc2bqcyK3ddzVVfS6oqej9wwYEdngR4ndWl" target="_blank" class="news-item">
+      <img src="./FBPOST1.png" alt="News 5">
+      <p><strong>Ministry for Youth Affairs (Diocese of Cubao) - Get to Know St. Carlo Acutis</strong></p>
+    </a>
+    <a href="https://www.facebook.com/PeanutGalleryMedia/posts/pfbid0qzdRaeipRA3vnshdRvMBUZAoL7QPn38t8o24ZqFRi3RjQJL8PYGjJJpQkewx4pcfl?rdid=H0FLDg1CKAKRCY9I#" target="_blank" class="news-item">
+      <img src="./FBPOST2.png" alt="News 5">
+      <p><strong>how “God’s Influencer” Carlo Acutis turned coding skills and unshakable devotion into a global legacy, becoming the first millennial saint.</strong></p>
+    </a>
+  </div>
+
+  <!-- News Gallery 3 -->
+  <h4 style="margin-top:2rem; color:#1e3a8a; text-align:center;">Public Groups</h4>
+  <p style="text-align:center; margin-bottom:1rem;">A public Facebook group dedicated to St. Carlo Acutis where people can unite to honor and share his legacy.</p>
+  <div class="news-gallery" id="newsGallery3">
+    <a href="https://www.facebook.com/groups/1705055086343223/?rdid=PP7FbAONOBZXTPzC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fg%2F178HdqvAfo#" target="_blank" class="news-item">
+      <img src="./FBGROUP1.png" alt="News 8">
+      <p><strong>Saint Carlo Acutis & Friends</strong></p>
+    </a>
+  </div>
+
+  <!-- News Gallery 4 -->
+  <h4 style="margin-top:2rem; color:#1e3a8a; text-align:center;">Link to the Official Site of St. Carlo Acutis</h4>
+  <p style="text-align:center; margin-bottom:1rem;">This highlights the official website created by St. Carlo Acutis himself, a remarkable project where he used his skills in technology to spread the Catholic faith. The site features a detailed catalog of Eucharistic Miracles from around the world, making it accessible to anyone seeking to deepen their understanding of the Eucharist. Through this work, Carlo showed how the internet can be a tool for evangelization, bridging faith and technology to inspire countless people even today.</p>
+  <div class="news-gallery" id="newsGallery4">
+    <a href="https://www.miracolieucaristici.org/en/Liste/list.html?fbclid=IwY2xjawNBXn1leHRuA2FlbQIxMABicmlkETFaN0R1dzJCYmtXM21ISVRpAR4aI5sJ4elY3hGLTRPQH4BQWoNazdTooEkqu_vm9SRFz25S8Vpnj0ds1wNxbg_aem_ey75tDXhmq-8fTdIStNgCA" target="_blank" class="news-item">
+      <img src="./SITEOFACUTIS.png" alt="News 11">
+      <p><strong>Official Site of Carlo Acutis</strong></p>
+    </a>
+    </a>
+  </div>
+</section>
+
+  <section id="education">
+    <h3>Education</h3>
+    <p>In terms of education, Carlo Acutis showed how technology can be a tool for learning, teaching, and spreading knowledge. His digital project on Eucharistic miracles is a clear example of using technology for educational purposes, since it compiled historical, scientific, and faith-based information into a format that could be accessed by students, teachers, and ordinary people around the world. By creating an online exhibition at a young age, he demonstrated the power of digital resources in making information more engaging, interactive, and widely available.</p>
+  <p>Carlo’s life also teaches students the importance of responsible and meaningful use of technology in education. Instead of being consumed by endless entertainment, he applied his skills to something with long-term value, showing how digital literacy can be paired with creativity and purpose. His example inspires learners to see technology not just as a tool for convenience, but as a pathway for deeper knowledge, sharing ideas, and contributing positively to society.</p>
+  </section>
+
+<!-- Mini-game Section -->
+<section id="game">
+  <h3>Mini-Game: Catch the Light</h3>
+  <p>Carlo often spoke of the Eucharist as his "highway to heaven," and he used his talents with technology to share the light of Christ with others. This game symbolizes catching the light of faith, just as Carlo invited people to embrace the light of God in their lives.</p>
+  <p><em><strong>How to Play:</strong></em></p>
+  <p>Move the basket left and right to catch the glowing lights before they fall. Each light you catch gives you points. Try to catch as many as you can!</p>
+  
+
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  <div id="game-controls">
+    <button onclick="moveBasket('left')">⬅ Left</button>
+    <button onclick="moveBasket('right')">Right ➡</button>
+    <br><br>
+    <button onclick="startGame()">▶ Start</button>
+    <button onclick="pauseGame()">⏸ Pause</button>
+  </div>
+</section>
+
+  <section id="quiz">
+    <h3>Quiz on Carlo Acutis</h3>
+    <div id="quiz-container">
+      <h4 id="question">Loading question...</h4>
+      <div id="options"></div>
+      <div id="result"></div>
+      <p id="points"></p>
+      <button id="play-again" style="display:none;" class="nav-btn">Play Again</button>
+    </div>
+  </section>
+
+    <section id="video">
+      <h3>Not Me But God Music Video</h3>
+      <p>As Blessed Carlo Acutis once said, <i>“Non io, ma Dio”</i> — translated as “Not Me, but God.” This profound statement reflects his belief that all things are made possible not through self-esteem, but through the glory of God. Inspired by this spiritual faith, Mr. Michael S. Yanga, the President of Dr. Yanga’s Colleges, Inc. (DYCI) composed a song entitled <b>“Not Me, But God”</b> dedicated to St. Carlo Acutis. The song features the words <i>“Essere sempre unito a Gesù, ecco il mio programma di vita”</i> which means “To always be close to Jesus, that's my life plan” — another expression of Carlo’s deep devotion spoken during his lifetime. </p>
+      <div class="video-wrapper">
+        <video controls playsinline webkit-playsinline preload="metadata" controlsList="nodownload">
+          <source src="./Not me, but God (Music Video).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div style="text-align:center;">
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          Song associated with Carlo Acutis: <strong>Not Me But God</strong>
+        </p>
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          Lyrics by: <strong>Mr. Michael S. Yanga</strong>
+        </p>
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          Performed by: <strong>Ms. Wynona Guison</strong>
+        </p>
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          Video by: <strong>The DYCI CREATIVES Team</strong>
+        </p>
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          For full cover, visit this link: <a href="https://www.facebook.com/share/v/1CAp8utxYU/" target="_blank">Click Here</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- <section id="video-bgm">
+      <h3>Not Me But God</h3>
+      <div class="video-wrapper">
+        <video controls playsinline webkit-playsinline preload="metadata" controlsList="nodownload">
+          <source src="./not-me-but-god.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div style="text-align:center;">
+        <p style="margin-top:0.5rem; color:#1e3a8a; font-style:italic;">
+          background music of this page: <strong>Not Me But God</strong>
+        </p>
+      </div>
+    </section> -->
+
+  <footer>
+    <p>© <span id="year"></span> | Dedicated to Blessed Carlo Acutis</p>
+    <p>created by the following students of DYCI:<P>
+     <P>Mr. Gabriel Ortega from the section of 12-Del Mundo, </p>
+    <P>Mr. Mikel De Jesus from the section of 12-Aquino, </P>
+    <P>and Ms. Trinity Bautista from the section of 11-Acutis</P>
+  </footer>
+
+  <script>
+
+      const gallery = document.getElementById("newsGallery");
+  let scrollAmount = 0;
+
+  function autoScroll() {
+    if (gallery) {
+      scrollAmount += 1;
+      gallery.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth"
+      });
+
+      // Loop back when reaching the end
+      if (scrollAmount >= gallery.scrollWidth - gallery.clientWidth) {
+        scrollAmount = 0;
+      }
+    }
+  }
+
+  setInterval(autoScroll, 50); // Speed (lower = faster
+
+// Background music control
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
+let isPlaying = true;
+
+// Set initial volume
+music.volume = 0.6;
+
+// Try autoplay on load
+window.addEventListener("load", () => {
+  music.play().catch(() => {
+    console.log("Autoplay blocked. User must press Music button.");
+    isPlaying = false;
+    musicBtn.textContent = "▶ Play Music";
+  });
+});
+
+// Toggle play/pause
+musicBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    music.pause();
+    musicBtn.textContent = "▶ Play Music";
+  } else {
+    music.play();
+    musicBtn.textContent = "⏸ Pause Music";
+  }
+  isPlaying = !isPlaying;
+});
+  
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+// Timeline items animation
+const timelineItems = document.querySelectorAll(".timeline-item");
+const timelineObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+timelineItems.forEach(item => timelineObserver.observe(item));
+
+    // Gallery items animation
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    const galleryObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+    galleryItems.forEach(item => galleryObserver.observe(item));
+
+     // Quiz functionality
+    const quizData = [
+    { question: "Where was Carlo Acutis born?", options: ["London", "Milan", "Rome", "Assisi"], answer: "London" },
+    { question: "What was Carlo Acutis known for?", options: ["Sports", "Computers", "Music", "Medicine"], answer: "Computers" },
+    { question: "In what year was Carlo Acutis beatified?", options: ["2018", "2019", "2020", "2021"], answer: "2020" }
+    ];
+
+    let currentQuestion = 0;
+    let points = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const resultEl = document.getElementById("result");
+    const pointsEl = document.getElementById("points"); 
+    const playAgainBtn = document.getElementById("play-again"); 
+
+    function loadQuestion() {
+    const q = quizData[currentQuestion];
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = "";
+    resultEl.textContent = "";
+
+    q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "quiz-btn";
+        btn.onclick = () => checkAnswer(option);
+        optionsEl.appendChild(btn);
+    });
+
+    pointsEl.textContent = "Points: " + points + "/" + quizData.length;
+    }
+
+    function checkAnswer(answer) {
+    if (answer === quizData[currentQuestion].answer) {
+        resultEl.textContent = "Correct!";
+        points++;
+    } else {
+        resultEl.textContent = "Wrong! The correct answer is " + quizData[currentQuestion].answer;
+    }
+
+    pointsEl.textContent = "Points: " + points + "/" + quizData.length;
+
+    // Disable all option buttons so player can’t spam
+    const buttons = document.querySelectorAll(".quiz-btn");
+    buttons.forEach(btn => btn.disabled = true);
+
+    // Move to next question after 1.5s
+    setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+        loadQuestion();
+        } else {
+        finishQuiz();
+        }
+    }, 1000);
+    }
+
+    function finishQuiz() {
+    questionEl.textContent = "Quiz Finished!";
+    optionsEl.innerHTML = "";
+    resultEl.textContent = "Your total points: " + points + "/" + quizData.length;
+    pointsEl.innerHTML = "";
+    playAgainBtn.style.display = "inline-block";
+    }
+
+    function restartQuiz() {
+    currentQuestion = 0;
+    points = 0;
+    playAgainBtn.style.display = "none";
+    loadQuestion();
+    }
+
+    playAgainBtn.onclick = restartQuiz;
+
+    loadQuestion();
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mini-game: Catch the Light
+const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let basketX = canvas.width / 2 - 40;
+  const basketWidth = 80;
+  const basketHeight = 20;
+  const basketSpeed = 4;
+
+  let light = { x: Math.random() * (canvas.width - 30), y: 0, size: 30 };
+  let score = 0;
+  let gameInterval;
+  let gameRunning = false;
+
+  // Continuous movement control
+  let moveLeft = false;
+  let moveRight = false;
+
+  function drawBasket() {
+    ctx.fillStyle = "#1e3a8a";
+    ctx.fillRect(basketX, canvas.height - basketHeight - 10, basketWidth, basketHeight);
+  }
+
+  function drawLight() {
+    ctx.fillStyle = "#fbbf24";
+    ctx.shadowColor = "#fbbf24";
+    ctx.shadowBlur = 20;
+    ctx.fillRect(light.x, light.y, light.size, light.size);
+    ctx.shadowBlur = 0; // reset glow after drawing
+  }
+
+  function updateLight() {
+    light.y += 1.2; // reduced falling speed
+
+    // Reset if it goes past bottom
+    if (light.y > canvas.height) {
+      resetLight();
+    }
+
+    // Collision check
+    if (
+      light.y + light.size > canvas.height - basketHeight - 10 &&
+      light.x + light.size > basketX &&
+      light.x < basketX + basketWidth
+    ) {
+      score++;
+      resetLight();
+    }
+  }
+
+  function resetLight() {
+    light.x = Math.random() * (canvas.width - light.size);
+    light.y = 0;
+  }
+
+  function updateBasket() {
+    if (moveLeft && basketX > 0) basketX -= basketSpeed;
+    if (moveRight && basketX + basketWidth < canvas.width) basketX += basketSpeed;
+  }
+
+  function drawScore() {
+    ctx.fillStyle = "#1e3a8a";
+    ctx.font = "16px Poppins";
+    ctx.fillText("Score: " + score, 10, 20);
+  }
+
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBasket();
+    drawLight();
+    drawScore();
+    updateBasket();
+    updateLight();
+  }
+
+  function startGame() {
+    if (!gameRunning) {
+      gameInterval = setInterval(gameLoop, 20);
+      gameRunning = true;
+    }
+  }
+
+  function pauseGame() {
+    clearInterval(gameInterval);
+    gameRunning = false;
+  }
+
+  // Button functions
+  function moveBasket(direction) {
+    if (direction === "left") moveLeft = true;
+    if (direction === "right") moveRight = true;
+  }
+
+  function stopBasket(direction) {
+    if (direction === "left") moveLeft = false;
+    if (direction === "right") moveRight = false;
+  }
+
+  // Attach press + hold behavior
+  document.querySelector("#game-controls button:nth-child(1)")
+    .addEventListener("mousedown", () => moveBasket("left"));
+  document.querySelector("#game-controls button:nth-child(1)")
+    .addEventListener("mouseup", () => stopBasket("left"));
+  document.querySelector("#game-controls button:nth-child(1)")
+    .addEventListener("mouseleave", () => stopBasket("left"));
+
+  document.querySelector("#game-controls button:nth-child(2)")
+    .addEventListener("mousedown", () => moveBasket("right"));
+  document.querySelector("#game-controls button:nth-child(2)")
+    .addEventListener("mouseup", () => stopBasket("right"));
+  document.querySelector("#game-controls button:nth-child(2)")
+    .addEventListener("mouseleave", () => stopBasket("right"));
+
+     document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      moveBasket("left");
+    }
+    if (e.key === "ArrowRight") {
+      moveBasket("right");
+    }
+  });
+
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowLeft") {
+      stopBasket("left");
+    }
+    if (e.key === "ArrowRight") {
+      stopBasket("right");
+    }
+  });
+    
+    // Resize on window changes (orientation changes on mobile)
+    window.addEventListener('resize', () => {
+      // If the game is running we don't reset score, but we recalc sizes/scale
+      resizeCanvas();
+    });
+  </script>
+</body>
+</html>
